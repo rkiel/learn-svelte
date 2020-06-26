@@ -4,15 +4,23 @@ export let title;
 export let description;
 export let tasks;
 
+let showDetails = false;
+
 import CheckList from './CheckList.svelte'
+
+function onClick() {
+  showDetails = !showDetails;
+}
 </script>
 
 <div class="card">
-  <div class="title">{title}</div>
+  <div class={showDetails ? "title is-open" : "title"} on:click={onClick}>{title}</div>
+  {#if showDetails}
   <div class="details">
     {description}
     <CheckList cardId={id} tasks={tasks} />
   </div>
+  {/if}
 </div>
 
 <style>
