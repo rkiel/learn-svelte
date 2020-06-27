@@ -1,4 +1,5 @@
 <script>
+export let id;
 export let title;
 export let cards;
 
@@ -7,8 +8,8 @@ import Card from './Card.svelte'
 
 <div class="list">
   <h1>{title}</h1>
-  {#each cards as card}
-    <Card id={card.id} title={card.title} description={card.description} tasks={card.tasks} />
+  {#each cards as card (card.id)}
+    <Card id={card.id} title={card.title} color={card.color} description={card.description} tasks={card.tasks} />
   {/each}
 </div>
 

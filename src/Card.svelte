@@ -2,6 +2,7 @@
 export let id;
 export let title;
 export let description;
+export let color;
 export let tasks;
 
 let showDetails = false;
@@ -15,6 +16,7 @@ function onClick() {
 </script>
 
 <div class="card">
+  <div class="sideColor" style="background-color: {color}" />
   <div class={showDetails ? "title is-open" : "title"} on:click={onClick}>{title}</div>
   {#if showDetails}
   <div class="details">
@@ -48,6 +50,14 @@ function onClick() {
   }
   .is-open:before {
     content: "v";
+  }
+  .sideColor {
+    position: 'absolute';
+    zIndex: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 7px;
   }
 
 </style>
