@@ -7,6 +7,7 @@ export let tasks;
 let showDetails = false;
 
 import CheckList from './CheckList.svelte'
+import marked from 'marked'
 
 function onClick() {
   showDetails = !showDetails;
@@ -17,7 +18,7 @@ function onClick() {
   <div class={showDetails ? "title is-open" : "title"} on:click={onClick}>{title}</div>
   {#if showDetails}
   <div class="details">
-    {description}
+    {@html marked(description)}
     <CheckList cardId={id} tasks={tasks} />
   </div>
   {/if}

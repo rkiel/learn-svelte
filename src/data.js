@@ -2,7 +2,8 @@ export const data = [
   {
     id: 1,
     title: "Write some more code",
-    description: "Code along with the samples in the book",
+    description:
+      "Code along with the **samples** in the book [Google](https://google.com)",
     status: "todo",
     tasks: [
       {
